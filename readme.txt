@@ -1,4 +1,4 @@
-=== Like Button Voting & Rating ===
+=== Rating Plugin ===
 Contributors: sombatos
 Tags: ratings, rating, post, posts, shortcode, shortcodes
 Requires at least: 2.8
