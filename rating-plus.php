@@ -1,6 +1,6 @@
 <?php
 /*
-  Plugin Name: Rating Plugin
+  Plugin Name: Rating Plus
   Plugin URI: https://github.com/sombatos/WordPress-Rating-Plugin
   Description: Clean rating widget plugin.
   Version: 1.0.0
@@ -8,7 +8,7 @@
   Author URI: 
  */
 
-define('RATING_PLUGIN_I18N', 'rating-plugin');
+define('RATING_PLUS_I18N', 'rating-plus');
 
 function rp_admin_enqueue_scripts() {
     $assets_url = plugin_dir_url( __FILE__ ) . 'assets/';
@@ -21,7 +21,7 @@ function rp_admin_enqueue_scripts() {
 }
 add_action('admin_enqueue_scripts', 'rp_admin_enqueue_scripts');
 
-class RatingPluginWidget extends WP_Widget {
+class RatingPlusWidget extends WP_Widget {
 
     public static $instance_default = array(
         'title'  => 'Rate This Page',
@@ -173,15 +173,15 @@ class RatingPluginWidget extends WP_Widget {
     );
 
     function __construct() {
-        $widget_ops = array('description' => __('Clean rating widget', RATING_PLUGIN_I18N));
-        parent::__construct(false, __('Rating Plugin', RATING_PLUGIN_I18N), $widget_ops);
+        $widget_ops = array('description' => __('Clean rating widget', RATING_PLUS_I18N));
+        parent::__construct(false, __('Rating Plus', RATING_PLUS_I18N), $widget_ops);
     }
 
     function form($instance) {
         $widget_id = time()+mt_rand(0, 10000000);
         
         if (!isset($instance['title'])) {
-            $instance['title'] = __(self::$instance_default['title'], RATING_PLUGIN_I18N);
+            $instance['title'] = __(self::$instance_default['title'], RATING_PLUS_I18N);
         }
         if (empty($instance['icon_l'])) {
             $instance['icon_l'] = self::$instance_default['icon_l'];
@@ -194,13 +194,13 @@ class RatingPluginWidget extends WP_Widget {
         }
 
         ?>
-        <div id="rating_plugin_<?php echo $widget_id; ?>" class="rp-widget">
+        <div id="rating_plus_<?php echo $widget_id; ?>" class="rp-widget">
             <p>
-                <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', RATING_PLUGIN_I18N); ?>:</label>
+                <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', RATING_PLUS_I18N); ?>:</label>
                 <input class="widefat" type="text" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" />
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id('icon_l'); ?>"><?php _e('Like Icon', RATING_PLUGIN_I18N); ?>:</label>
+                <label for="<?php echo $this->get_field_id('icon_l'); ?>"><?php _e('Like Icon', RATING_PLUS_I18N); ?>:</label>
                 <select name="<?php echo $this->get_field_name('icon_l'); ?>" id="<?php echo $this->get_field_id('icon_l'); ?>" class="rp-icon-select widefat">
                     <?php foreach (self::$icons as $icon): ?>
                         <option value="<?php echo $icon; ?>" <?php selected($icon, $instance['icon_l']); ?> ><?php echo $icon; ?></option>
@@ -208,7 +208,7 @@ class RatingPluginWidget extends WP_Widget {
                 </select>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id('icon_d'); ?>"><?php _e('Dislike Icon', RATING_PLUGIN_I18N); ?>:</label>
+                <label for="<?php echo $this->get_field_id('icon_d'); ?>"><?php _e('Dislike Icon', RATING_PLUS_I18N); ?>:</label>
                 <select name="<?php echo $this->get_field_name('icon_d'); ?>" id="<?php echo $this->get_field_id('icon_d'); ?>" class="rp-icon-select widefat">
                     <?php foreach (self::$icons as $icon): ?>
                         <option value="<?php echo $icon; ?>" <?php selected($icon, $instance['icon_d']); ?> ><?php echo $icon; ?></option>
@@ -216,7 +216,7 @@ class RatingPluginWidget extends WP_Widget {
                 </select>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Like Text', RATING_PLUGIN_I18N); ?>:</label>
+                <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Like Text', RATING_PLUS_I18N); ?>:</label>
                 <input class="widefat" type="text" id="<?php echo $this->get_field_id('i18n_like'); ?>" name="<?php echo $this->get_field_name('i18n_like'); ?>" value="<?php echo $instance['i18n_like']; ?>" />
             </p>
         </div>
@@ -245,7 +245,7 @@ class RatingPluginWidget extends WP_Widget {
                 return field.trigger('touchend');
             });
             jQuery(document).ready(function() {
-                jQuery("#rating_plugin_<?php echo $widget_id; ?> select.rp-icon-select").select2({
+                jQuery("#rating_plus_<?php echo $widget_id; ?> select.rp-icon-select").select2({
                     dropdownCssClass: 'select2-celled',
                     minimumResultsForSearch: -1,
                     formatResult: rpIconSelectFormat,
@@ -302,6 +302,6 @@ WIDGET_HTML;
 }
 
 function rp_widgets_init() {
-    register_widget('RatingPluginWidget');
+    register_widget('RatingPlusWidget');
 }
 add_action('widgets_init', 'rp_widgets_init' );
