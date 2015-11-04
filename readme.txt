@@ -26,9 +26,12 @@ Fork plugin on GitHub: <a href="https://github.com/sombatos/WordPress-Rating-Plu
 
 == Frequently Asked Questions ==
 
-<a href="https://github.com/sombatos/WordPress-Rating-Plugin" target="_blank">https://github.com/sombatos/WordPress-Rating-Plugin/a>
+<a href="https://github.com/sombatos/WordPress-Rating-Plugin" target="_blank">https://github.com/sombatos/WordPress-Rating-Plugin</a>
 
 == Screenshots ==
+1. Widget
+2. Icons
+3. Frontend
 
 == Changelog ==
 
