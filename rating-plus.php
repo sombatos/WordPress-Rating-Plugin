@@ -2,7 +2,7 @@
 /*
   Plugin Name: Rating Plus
   Plugin URI: https://github.com/sombatos/WordPress-Rating-Plugin
-  Description: Clean rating widget plugin.
+  Description: A simple and clean rating widget plugin allowing to add a sexy rate button to the widgets area.
   Version: 1.0.0
   Author: sombatos
   Author URI: 

@@ -1,5 +1,5 @@
 # WordPress Rating Plugin
-Clean WordPress rating widget plugin.
+A simple and clean rating widget plugin allowing to add a sexy rate button to the widgets area.
 
 ![WordPress Rating Plugin](https://github.com/sombatos/WordPress-Rating-Plugin/raw/master/assets/img/icon-256x256.png "WordPress Rating Plugin")
 
