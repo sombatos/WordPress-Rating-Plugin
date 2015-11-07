@@ -27,6 +27,7 @@ class RatingPlusWidget extends WP_Widget {
         'title'  => 'Rate This Page',
         'icon_l' => 'thmb5-u',
         'icon_d' => 'thmb5-d',
+        'icon_size' => '37',
         'i18n_like' => 'Like'
     );
 
@@ -179,19 +180,8 @@ class RatingPlusWidget extends WP_Widget {
 
     function form($instance) {
         $widget_id = time()+mt_rand(0, 10000000);
-        
-        if (!isset($instance['title'])) {
-            $instance['title'] = __(self::$instance_default['title'], RATING_PLUS_I18N);
-        }
-        if (empty($instance['icon_l'])) {
-            $instance['icon_l'] = self::$instance_default['icon_l'];
-        }
-        if (empty($instance['icon_d'])) {
-            $instance['icon_d'] = self::$instance_default['icon_d'];
-        }
-        if (!isset($instance['i18n_like'])) {
-            $instance['i18n_like'] = self::$instance_default['i18n_like'];
-        }
+
+        $instance = $this->sanitizeInstance($instance);
 
         ?>
         <div id="rating_plus_<?php echo $widget_id; ?>" class="rp-widget">
@@ -216,7 +206,11 @@ class RatingPlusWidget extends WP_Widget {
                 </select>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Like Text', RATING_PLUS_I18N); ?>:</label>
+                <label for="<?php echo $this->get_field_id('icon_size'); ?>"><?php _e('Icon Size', RATING_PLUS_I18N); ?>:</label>
+                <input class="widefat" type="number" id="<?php echo $this->get_field_id('icon_size'); ?>" name="<?php echo $this->get_field_name('icon_size'); ?>" value="<?php echo $instance['icon_size']; ?>" min="5" max="500" maxlenght="3"/>
+            </p>
+            <p>
+                <label for="<?php echo $this->get_field_id('i18n_like'); ?>"><?php _e('Like Text', RATING_PLUS_I18N); ?>:</label>
                 <input class="widefat" type="text" id="<?php echo $this->get_field_id('i18n_like'); ?>" name="<?php echo $this->get_field_name('i18n_like'); ?>" value="<?php echo $instance['i18n_like']; ?>" />
             </p>
         </div>
@@ -257,8 +251,31 @@ class RatingPlusWidget extends WP_Widget {
         <?php
     }
 
+    function sanitizeInstance($instance) {
+        if (!isset($instance['title'])) {
+            $instance['title'] = __(self::$instance_default['title'], RATING_PLUS_I18N);
+        }
+        if (empty($instance['icon_l'])) {
+            $instance['icon_l'] = self::$instance_default['icon_l'];
+        }
+        if (empty($instance['icon_d'])) {
+            $instance['icon_d'] = self::$instance_default['icon_d'];
+        }
+        if (empty($instance['icon_size'])) {
+            $instance['icon_size'] = self::$instance_default['icon_size'];
+        }
+        if (!isset($instance['i18n_like'])) {
+            $instance['i18n_like'] = self::$instance_default['i18n_like'];
+        }
+
+        return $instance;
+    }
+
+
     function widget($args, $instance) {
         global $post;
+
+        $instance = $this->sanitizeInstance($instance);
 
         if (is_array($instance)) {
             extract($instance);
@@ -287,7 +304,7 @@ class RatingPlusWidget extends WP_Widget {
 
         $widget_html = <<<WIDGET_HTML
 <!-- LikeBtn.com BEGIN -->
-<span class="likebtn-wrapper" data-theme="custom" data-btn_size="37" data-f_size="24" data-icon_l="{$instance['icon_l']}" data-icon_d="{$instance['icon_d']}" data-icon_size="37" data-icon_l_c="#3498db" data-icon_d_c="#3498db" data-bg_c="transparent" data-brdr_c="rgba(0,0,0,0)" data-identifier="{$identifier}" data-i18n_like="{$instance['i18n_like']}" {$extra}></span>
+<span class="likebtn-wrapper" data-theme="custom" data-btn_size="{$instance['icon_size']}" data-f_size="24" data-icon_l="{$instance['icon_l']}" data-icon_d="{$instance['icon_d']}" data-icon_size="{$instance['icon_size']}" data-icon_l_c="#3498db" data-icon_d_c="#3498db" data-bg_c="transparent" data-brdr_c="rgba(0,0,0,0)" data-identifier="{$identifier}" data-i18n_like="{$instance['i18n_like']}" {$extra}></span>
 <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
 <!-- LikeBtn.com END -->
 WIDGET_HTML;
