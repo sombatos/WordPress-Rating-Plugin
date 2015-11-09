@@ -14,6 +14,11 @@ A simple and clean rating widget plugin allowing to add a sexy rate button to th
 
 I needed a simple plugin to display a rating in WordPress widget. So I made this Rating Plus plugin. It is only beginning, more cool features to come...
 
+=Rating Plus Features=
+*   Custom rating icons
+*   Custom icons size
+*   Custom text
+
 Just go to `Appearance » Widgets`, add Rating Plus widget to the sidebar and adjust rating buttons the way you want.
 
 Fork plugin on GitHub: <a href="https://github.com/sombatos/WordPress-Rating-Plugin" target="_blank">https://github.com/sombatos/WordPress-Rating-Plugin</a>
