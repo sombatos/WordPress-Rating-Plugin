@@ -246,6 +246,10 @@ class RatingPlusWidget extends WP_Widget {
                     formatSelection: rpIconSelectFormat,
                     escapeMarkup: function(m) { return m; }
                 });
+                // Like link
+                jQuery("#rating_plus_<?php echo $widget_id; ?>").parents('form:first').children(".widget-control-actions").children(".alignleft:first").append(
+                    '| <a href="https://wordpress.org/support/view/plugin-reviews/rating-plus?filter=5&rate=5#postform" target="_blank"><?php _e('Like It?', RATING_PLUS_I18N) ?></a>'
+                );
             });
         </script>
         <?php
