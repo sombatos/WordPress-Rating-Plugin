@@ -8,13 +8,14 @@
   Author URI: 
  */
 
+define('RATING_PLUS_VER', '1.0.0');
 define('RATING_PLUS_I18N', 'rating-plus');
 
 function rp_admin_enqueue_scripts() {
     $assets_url = plugin_dir_url( __FILE__ ) . 'assets/';
 
-    wp_register_style('select2css', $assets_url.'/css/select2.css', false, '1.0', 'all');
-    wp_register_script('select2', $assets_url.'/js/select2.js', array( 'jquery' ), '1.0', true);
+    wp_register_style('select2css', $assets_url.'/css/select2.css', false, RATING_PLUS_VER, 'all');
+    wp_register_script('select2', $assets_url.'/js/select2.js', array( 'jquery' ), RATING_PLUS_VER, true);
 
     wp_enqueue_style('select2css');
     wp_enqueue_script('select2');
@@ -325,4 +326,30 @@ WIDGET_HTML;
 function rp_widgets_init() {
     register_widget('RatingPlusWidget');
 }
-add_action('widgets_init', 'rp_widgets_init' );
+
+add_action('widgets_init', 'rp_widgets_init');
+
+function rp_admin_init()
+{
+    if (is_admin()) {
+        wp_enqueue_script('jquery');
+        wp_enqueue_script('jquery-ui-dialog');
+        wp_enqueue_script('rp-script', plugin_dir_url( __FILE__ ).'assets/js/script.js', array('jquery'), RATING_PLUS_VER);
+
+        wp_enqueue_style("rp-style", plugin_dir_url( __FILE__ ).'assets/css/style.css');
+        wp_enqueue_style("wp-jquery-ui-dialog");
+    }
+}
+
+add_action('admin_init', 'rp_admin_init');
+
+function rp_admin_footer() {
+    $rp_lb_install_url = wp_nonce_url(admin_url('update.php').'?action=install-plugin&plugin=likebtn-like-button', 'install-plugin_likebtn-like-button');
+    ?>
+    <script type="text/javascript">
+        var rp_lb_install_url = "<?php echo $rp_lb_install_url ?>";
+    </script>
+    <?php 
+}
+
+add_action('admin_footer', 'rp_admin_footer');

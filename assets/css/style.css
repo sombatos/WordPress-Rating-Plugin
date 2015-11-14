@@ -1,0 +1,15 @@
+.wp-core-ui .button-primary.rp-button-install {
+    background-color: #5cb85c;
+    border-color: #449d44;
+}
+.wp-core-ui .button-primary.rp-button-install:hover {
+    background-color: #449d44;
+}
+#rp-nav-tab {
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 24px;
+}
+#rp-tabbable-themes {
+    margin-bottom: 10px;
+}
