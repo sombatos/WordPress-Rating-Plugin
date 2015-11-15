@@ -21,7 +21,7 @@ I needed a simple plugin to display a rating in WordPress widget. So I made this
 
 Just go to `Appearance » Widgets`, add Rating Plus widget to the sidebar and adjust rating buttons the way you want.
 
-Fork plugin on GitHub: <a href="https://github.com/sombatos/WordPress-Rating-Plugin" target="_blank">https://github.com/sombatos/WordPress-Rating-Plugin</a>
+Fork Rating Plus plugin on GitHub: <a href="https://github.com/sombatos/WordPress-Rating-Plugin" target="_blank">https://github.com/sombatos/WordPress-Rating-Plugin</a>
 
 == Installation ==
 
