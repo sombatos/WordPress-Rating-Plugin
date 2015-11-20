@@ -13,3 +13,6 @@
 #rp-tabbable-themes {
     margin-bottom: 10px;
 }
+.rp_dialog {
+	z-index: 1000001 !important;
+}

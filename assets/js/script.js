@@ -103,7 +103,7 @@ function rpDeactivateDialog(event, href)
 		title: 'Deactivate Plugin',
 		draggable: false,
 		show: 'fade',
-		dialogClass: '',
+		dialogClass: 'rp_dialog',
 		close: function( event, ui ) {
 			
 		},
