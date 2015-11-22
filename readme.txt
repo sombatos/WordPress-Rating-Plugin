@@ -11,7 +11,7 @@ A simple and clean rating widget plugin allowing to add a sexy rate button to th
 
 == Description ==
 
-I needed a simple plugin to display a rating in WordPress widget. So I made this Rating Plus plugin. It is only beginning, more cool features to come...
+I needed a simple plugin to display rating in WordPress widget. So I made this Rating Plus plugin. It is only beginning, more cool features to come...
 
 = Rating Plus Features =
 *   Custom rating icons
