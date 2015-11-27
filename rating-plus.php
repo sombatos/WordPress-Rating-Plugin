@@ -217,9 +217,6 @@ class RatingPlusWidget extends WP_Widget {
         </div>
         <link rel="stylesheet" href="//w.likebtn.com/css/w/icons.css">
         <style>
-            /*.rp-icon-select.select2-container {
-                width: 100%;
-            }*/
             .rp-icon-select.select2-container .lb-fi,
             .select2-results .lb-fi {
                 font-size: 22px;
