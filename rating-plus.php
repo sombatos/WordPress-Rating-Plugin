@@ -328,14 +328,15 @@ add_action('widgets_init', 'rp_widgets_init');
 
 function rp_admin_init()
 {
-    if (is_admin()) {
+    if (is_admin() && (basename($_SERVER['REQUEST_URI']) == 'plugins.php' || basename($_SERVER['REQUEST_URI'])  == 'plugins.php')) {
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery-ui-dialog');
-        wp_enqueue_script('rp-script', plugin_dir_url( __FILE__ ).'assets/js/script.js', array('jquery'), RATING_PLUS_VER);
 
-        wp_enqueue_style("rp-style", plugin_dir_url( __FILE__ ).'assets/css/style.css');
         wp_enqueue_style("wp-jquery-ui-dialog");
     }
+
+    wp_enqueue_script('rp-script', plugin_dir_url( __FILE__ ).'assets/js/script.js', array('jquery'), RATING_PLUS_VER);
+    wp_enqueue_style("rp-style", plugin_dir_url( __FILE__ ).'assets/css/style.css');
 }
 
 add_action('admin_init', 'rp_admin_init');
