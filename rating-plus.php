@@ -25,9 +25,9 @@ add_action('admin_enqueue_scripts', 'rp_admin_enqueue_scripts');
 class RatingPlusWidget extends WP_Widget {
 
     public static $instance_default = array(
-        'title'  => 'Rate This Page',
-        'icon_l' => 'thmb5-u',
-        'icon_d' => 'thmb5-d',
+        'title'     => 'Rate This Page',
+        'icon_l'    => 'thmb5-u',
+        'icon_d'    => 'thmb5-d',
         'icon_size' => '37',
         'i18n_like' => 'Like'
     );
@@ -331,7 +331,6 @@ function rp_admin_init()
     if (is_admin() && (basename($_SERVER['REQUEST_URI']) == 'plugins.php' || basename($_SERVER['REQUEST_URI'])  == 'plugins.php')) {
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery-ui-dialog');
-
         wp_enqueue_style("wp-jquery-ui-dialog");
     }
 
