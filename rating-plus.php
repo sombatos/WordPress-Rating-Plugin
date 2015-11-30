@@ -3,12 +3,12 @@
   Plugin Name: Rating Plus
   Plugin URI: https://github.com/sombatos/WordPress-Rating-Plugin
   Description: A simple and clean rating widget plugin allowing to add a sexy rate button to the widgets area.
-  Version: 1.0.0
+  Version: 1.0.1
   Author: sombatos
   Author URI: 
  */
 
-define('RATING_PLUS_VER', '1.0.0');
+define('RATING_PLUS_VER', '1.0.1');
 define('RATING_PLUS_I18N', 'rating-plus');
 
 function rp_admin_enqueue_scripts() {

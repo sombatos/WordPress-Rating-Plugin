@@ -3,7 +3,7 @@ Contributors: sombatos
 Tags: rating, ratings, rating plus, post rating, page rating, rating system, rating widget, star rating, thumb rating, thumbs rating, post, posts, like, admin, comments, dislike, facebook, five stars, five-star, google, image, images, like, poll, polls, product rating, product review, voting, rate, rate product, rating platform, rating plugin, rating system, rating tool, rating tools, rating widget, ratings, ratings platform, ratings system, ratings tool, ratings tools, ratings widget, review, review platform, review plugin, review system, review tool, review tools, review widget, reviews, reviews platform, reviews system, reviews tool, reviews tools, reviews widget, vote, vote plugin, vote product, Votes, voting contest, contest, voting platform, voting plugin, voting system, voting tool, voting tools, voting widget, votings, votings platform, votings system, votings tool, votings tools, votings widget, widget, widgets, mobile plugin, quiz
 Requires at least: 2.8
 Tested up to: 4.3.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
