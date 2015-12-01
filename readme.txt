@@ -39,6 +39,9 @@ Fork Rating Plus plugin on GitHub: <a href="https://github.com/sombatos/WordPres
 
 == Changelog ==
 
+= 1.0.1 =
+* Custom icons size.
+
 = 1.0.0 =
 * Plugin released.
 
