@@ -30,8 +30,12 @@ var rp_lb_themes = [
 ];
 
 jQuery(document).ready(function(jQuery) {
-	var a = jQuery(".plugins #rating-plus.active .deactivate a:first");
+	var a = jQuery(".plugins .active[data-slug='rating-plus'] .deactivate a:first");
 	if (!a) {
+		a = jQuery(".plugins #rating-plus.active .deactivate a:first");
+	}
+
+	if (!a || "undefined" == typeof(a.dialog)) {
 		return;
 	}
 	a.attr('onclick', 'rpDeactivateDialog(event, "'+a.attr('href')+'")');
@@ -48,8 +52,8 @@ function rpDeactivateDialog(event, href)
 			'<div id="rp_deactivate_dlg">'+
 				'<center>'+
 					'Didn\'t get what you want? '+
-					'Try <a href="https://likebtn.com/en/wordpress-like-button-plugin" target="_blank">Like Button Voting & Rating</a> plugin.<br/><br/>'+
-					'<a href="'+rp_lb_install_url+'" target="_blank" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only button-primary rp-button-install" role="button"><span class="ui-button-text">Install <strong>Like Button Voting & Rating</strong> plugin</span></a>'+
+					'Try <a href="https://likebtn.com/en/wordpress-like-button-plugin?utm_source=ratingplus&utm_campaign=ratingplus&utm_medium=link" target="_blank">Like Button Voting & Rating</a> plugin.<br/><br/>'+
+					'<a href="'+rp_lb_install_url+'" target="_blank" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only button-primary rp-button-install" role="button" style="text-shadow:none"><span class="ui-button-text">Install <strong>Like Button Voting & Rating</strong> plugin</span></a>'+
 				'</center>'+
 				'<h3 class="nav-tab-wrapper" id="rp-nav-tab">'+
 	                '<a class="nav-tab rp-nav-tab-themes nav-tab-active" href="javascript:rpSwitchTab(\'themes\');void(0);">Themes</a>'+

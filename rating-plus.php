@@ -328,7 +328,16 @@ add_action('widgets_init', 'rp_widgets_init');
 
 function rp_admin_init()
 {
-    if (is_admin() && (basename($_SERVER['REQUEST_URI']) == 'plugins.php' || basename($_SERVER['REQUEST_URI'])  == 'plugins.php')) {
+    $basename = basename($_SERVER['REQUEST_URI']);
+    if (!$basename) {
+        $basename = basename($_SERVER['SCRIPT_NAME']);
+    }
+    if (!$basename) {
+        $basename = basename($_SERVER['SCRIPT_FILENAME']);
+    }
+    $basename = preg_replace("/\?.*/", '', $basename);
+
+    if (is_admin() && $basename == 'plugins.php') {
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery-ui-dialog');
         wp_enqueue_style("wp-jquery-ui-dialog");
