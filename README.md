@@ -20,3 +20,7 @@ I needed a simple plugin to display rating in WordPress widget. So I made this R
 ## Installation
 
 Just go to `Appearance » Widgets`, add Rating Plus widget to the sidebar and adjust rating buttons the way you want.
+
+## Credits
+
+Thanks to <a href="https://likebtn.com/en/wordpress-like-button-plugin" title="WordPress Like Button Rating Plugin">LikeBtn</a> for kindly providing Like buttons for my plugin.
